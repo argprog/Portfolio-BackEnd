@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Educacion;
 import com.backend.portfolio.service.SEducacion;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class CEducacion {
     @Autowired
     private SEducacion eduServ;
@@ -41,7 +43,7 @@ public class CEducacion {
         return "La educacion fue eliminada correctamente";
     }
 
-    @PutMapping("/educacion/editar/{id}")
+    @PutMapping("/educacion/editar")
     public String editEducacion(@RequestBody Educacion edu){
        eduServ.editEducacion(edu);
        return "La educacion se editó correctamente";

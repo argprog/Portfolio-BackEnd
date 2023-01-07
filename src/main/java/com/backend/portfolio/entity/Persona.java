@@ -17,6 +17,7 @@ public class Persona {
     private String correo_electronico;
     private String telefono;
 
+
     public Persona() {
     }
 
@@ -84,6 +85,5 @@ public class Persona {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
-    
+
 }

@@ -4,9 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import java.util.Date;
 
 @Entity
 public class Proyecto {
@@ -14,14 +11,13 @@ public class Proyecto {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String institucion;
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private String fecha;
     private String nombre;
 
     public Proyecto() {
     }
 
-    public Proyecto(String institucion, Date fecha, String nombre) {
+    public Proyecto(String institucion, String fecha, String nombre) {
         this.institucion = institucion;
         this.fecha = fecha;
         this.nombre = nombre;
@@ -43,11 +39,11 @@ public class Proyecto {
         this.institucion = institucion;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -58,6 +54,5 @@ public class Proyecto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
 }

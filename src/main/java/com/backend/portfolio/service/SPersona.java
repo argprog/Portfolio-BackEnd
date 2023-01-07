@@ -11,9 +11,9 @@ public class SPersona {
     @Autowired
     private RPersona persoRepository;
     
+    
     public List <Persona> getPersona(){
-        List <Persona> listaPersonas = persoRepository.findAll();
-        return listaPersonas;
+        return persoRepository.findAll();
     }
     
     public void savePersona (Persona perso){

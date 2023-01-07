@@ -11,16 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("personas")
 @CrossOrigin(origins="http://localhost:4200")
 public class CPersona {
     @Autowired
     private SPersona personaServ;
+   
     
     @GetMapping("/personas/traer")
     public List<Persona>getPersona(){
@@ -45,9 +44,9 @@ public class CPersona {
         return "La persona fue eliminada correctamente";
     }
 
-    @PutMapping("/personas/editar/{id}")
+    @PutMapping("/personas/editar")
     public String editPersona(@RequestBody Persona perso){
        personaServ.editPersona(perso);
-       return "La persona se editó correctamente";
+       return "ok";
     }
 }

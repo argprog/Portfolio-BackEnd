@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Experiencia;
 import com.backend.portfolio.service.SExperiencia;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class CExperiencia {
     @Autowired
     private SExperiencia expeServ;
@@ -41,7 +43,7 @@ public class CExperiencia {
         return "La experiencia fue eliminada correctamente";
     }
 
-    @PutMapping("/experiencias/editar/{id}")
+    @PutMapping("/experiencias/editar")
     public String editExperiencia(@RequestBody Experiencia expe){
        expeServ.editExperiencia(expe);
        return "La experiencia se editó correctamente";
