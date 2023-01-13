@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 public class SPersona {
     @Autowired
     private RPersona persoRepository;
-    
-    
+        
     public List <Persona> getPersona(){
         return persoRepository.findAll();
     }

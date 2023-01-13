@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Proyecto;
 import com.backend.portfolio.service.SProyecto;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,18 +32,21 @@ public class CProyecto {
         return proyectoServ.findProyecto(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/proyectos/crear")
     public String createProyecto(@RequestBody Proyecto proye){
         proyectoServ.saveProyecto(proye);
         return "El proyecto fue creado correctamente";
     }
-       
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/proyectos/borrar/{id}")
     public String deleteProyecto(@PathVariable int id){
         proyectoServ.deleteProyecto(id);
         return "El proyecto fue eliminado correctamente";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/proyectos/editar")
     public String editProyecto(@RequestBody Proyecto proye){
        proyectoServ.editProyecto(proye);

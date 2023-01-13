@@ -17,11 +17,10 @@ public class Persona {
     private String correo_electronico;
     private String telefono;
 
-
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String certificacion, String profesion, String correo_electronico, String telefono) {
+    public Persona(String nombre, String apellido, String certificacion, String profesion, String correo_electronico, String telefono, String email, String clave) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.certificacion = certificacion;
@@ -85,5 +84,5 @@ public class Persona {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
+    
 }

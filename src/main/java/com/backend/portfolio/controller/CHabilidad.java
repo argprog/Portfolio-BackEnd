@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Habilidad;
 import com.backend.portfolio.service.SHabilidad;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,18 +32,21 @@ public class CHabilidad {
         return habilidadServ.findHabilidad(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")    
     @PostMapping("/habilidades/crear")
     public String createHabilidad(@RequestBody Habilidad habi){
         habilidadServ.saveHabilidad(habi);
         return "La habilidad fue creada correctamente";
     }
-       
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/habilidades/borrar/{id}")
     public String deleteHabilidad(@PathVariable int id){
         habilidadServ.deleteHabilidad(id);
         return "La habilidad fue eliminada correctamente";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/habilidades/editar")
     public String editHabilidad(@RequestBody Habilidad habi){
        habilidadServ.editHabilidad(habi);

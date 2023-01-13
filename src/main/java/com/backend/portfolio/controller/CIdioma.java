@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Idioma;
 import com.backend.portfolio.service.SIdioma;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,18 +32,21 @@ public class CIdioma {
         return idiomaServ.findIdioma(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/idiomas/crear")
     public String createIdioma(@RequestBody Idioma idiom){
         idiomaServ.saveIdioma(idiom);
         return "El idioma fue creado correctamente";
     }
-       
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/idiomas/borrar/{id}")
     public String deleteIdioma(@PathVariable int id){
         idiomaServ.deleteIdioma(id);
         return "El idioma fue eliminado correctamente";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/idiomas/editar")
     public String editIdioma(@RequestBody Idioma idiom){
        idiomaServ.editIdioma(idiom);

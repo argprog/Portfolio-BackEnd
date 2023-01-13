@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Educacion;
 import com.backend.portfolio.service.SEducacion;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,19 +31,21 @@ public class CEducacion {
     public Educacion getEducacion(@PathVariable int id){
         return eduServ.findEducacion(id);
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/educacion/crear")
     public String createEducacion(@RequestBody Educacion edu){
         eduServ.saveEducacion(edu);
         return "La educacion fue creada correctamente";
     }
-       
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/educacion/borrar/{id}")
     public String deleteEducacion(@PathVariable int id){
         eduServ.deleteEducacion(id);
         return "La educacion fue eliminada correctamente";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/educacion/editar")
     public String editEducacion(@RequestBody Educacion edu){
        eduServ.editEducacion(edu);

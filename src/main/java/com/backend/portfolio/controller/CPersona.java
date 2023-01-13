@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Persona;
 import com.backend.portfolio.service.SPersona;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CPersona {
     @Autowired
     private SPersona personaServ;
-   
-    
+       
     @GetMapping("/personas/traer")
     public List<Persona>getPersona(){
         return personaServ.getPersona();
@@ -32,18 +32,21 @@ public class CPersona {
         return personaServ.findPersona(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona perso){
         personaServ.savePersona(perso);
         return "La persona fue creada correctamente";
     }
-       
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
     public String deletePersona(@PathVariable int id){
         personaServ.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar")
     public String editPersona(@RequestBody Persona perso){
        personaServ.editPersona(perso);

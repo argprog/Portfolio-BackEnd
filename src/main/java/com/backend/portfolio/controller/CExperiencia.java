@@ -4,6 +4,7 @@ import com.backend.portfolio.entity.Experiencia;
 import com.backend.portfolio.service.SExperiencia;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,18 +32,21 @@ public class CExperiencia {
         return expeServ.findExperiencia(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/experiencias/crear")
     public String createExperiencia(@RequestBody Experiencia expe){
         expeServ.saveExperiencia(expe);
         return "La experiencia fue creada correctamente";
     }
-       
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/experiencias/borrar/{id}")
     public String deleteExperiencia(@PathVariable int id){
         expeServ.deleteExperiencia(id);
         return "La experiencia fue eliminada correctamente";
     }
-
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/experiencias/editar")
     public String editExperiencia(@RequestBody Experiencia expe){
        expeServ.editExperiencia(expe);
