@@ -13,13 +13,15 @@ public class Idioma {
     private int id;
     private String nombre;
     private String nivel;
-
+    private String imagen;
+    
     public Idioma() {
     }
 
-    public Idioma(String nombre, String nivel) {
+    public Idioma(String nombre, String nivel, String imagen) {
         this.nombre = nombre;
         this.nivel = nivel;
+        this.imagen = imagen;
     }
 
     public int getId() {
@@ -45,6 +47,13 @@ public class Idioma {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
-    
-    
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+   
 }

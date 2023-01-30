@@ -32,21 +32,18 @@ public class CPersona {
         return personaServ.findPersona(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona perso){
         personaServ.savePersona(perso);
         return "La persona fue creada correctamente";
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
     public String deletePersona(@PathVariable int id){
         personaServ.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar")
     public String editPersona(@RequestBody Persona perso){
        personaServ.editPersona(perso);

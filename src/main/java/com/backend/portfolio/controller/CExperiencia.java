@@ -32,21 +32,21 @@ public class CExperiencia {
         return expeServ.findExperiencia(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+ 
     @PostMapping("/experiencias/crear")
     public String createExperiencia(@RequestBody Experiencia expe){
         expeServ.saveExperiencia(expe);
         return "La experiencia fue creada correctamente";
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @DeleteMapping("/experiencias/borrar/{id}")
     public String deleteExperiencia(@PathVariable int id){
         expeServ.deleteExperiencia(id);
         return "La experiencia fue eliminada correctamente";
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+ 
     @PutMapping("/experiencias/editar")
     public String editExperiencia(@RequestBody Experiencia expe){
        expeServ.editExperiencia(expe);

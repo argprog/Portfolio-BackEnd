@@ -13,14 +13,16 @@ public class Proyecto {
     private String institucion;
     private String fecha;
     private String nombre;
+    private String imagen;
 
     public Proyecto() {
     }
 
-    public Proyecto(String institucion, String fecha, String nombre) {
+    public Proyecto(String institucion, String fecha, String nombre, String imagen) {
         this.institucion = institucion;
         this.fecha = fecha;
         this.nombre = nombre;
+        this.imagen = imagen;
     }
 
     public int getId() {
@@ -55,4 +57,11 @@ public class Proyecto {
         this.nombre = nombre;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }

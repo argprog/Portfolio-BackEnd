@@ -32,21 +32,18 @@ public class CProyecto {
         return proyectoServ.findProyecto(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/proyectos/crear")
     public String createProyecto(@RequestBody Proyecto proye){
         proyectoServ.saveProyecto(proye);
         return "El proyecto fue creado correctamente";
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/proyectos/borrar/{id}")
     public String deleteProyecto(@PathVariable int id){
         proyectoServ.deleteProyecto(id);
         return "El proyecto fue eliminado correctamente";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/proyectos/editar")
     public String editProyecto(@RequestBody Proyecto proye){
        proyectoServ.editProyecto(proye);

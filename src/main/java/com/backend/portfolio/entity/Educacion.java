@@ -13,14 +13,16 @@ public class Educacion {
     private String institucion;
     private String fecha;
     private String titulo;
+    private String imagen;
 
     public Educacion() {
     }
 
-    public Educacion(String institucion, String fecha, String titulo) {
+    public Educacion(String institucion, String fecha, String titulo, String imagen) {
         this.institucion = institucion;
         this.fecha = fecha;
         this.titulo = titulo;
+        this.imagen = imagen;
     }
 
     public int getId() {
@@ -54,5 +56,13 @@ public class Educacion {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
 }
-   

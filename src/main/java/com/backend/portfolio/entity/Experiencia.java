@@ -14,15 +14,17 @@ public class Experiencia {
     private String fecha_inicio;
     private String fecha_fin;
     private String puesto;
+    private String imagen;
 
     public Experiencia() {
     }
 
-    public Experiencia(String empresa, String fecha_inicio, String fecha_fin, String puesto) {
+    public Experiencia(String empresa, String fecha_inicio, String fecha_fin, String puesto, String imagen) {
         this.empresa = empresa;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.puesto = puesto;
+        this.imagen = imagen;
     }
 
     public int getId() {
@@ -65,7 +67,12 @@ public class Experiencia {
         this.puesto = puesto;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
 
-    
-    
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
 }

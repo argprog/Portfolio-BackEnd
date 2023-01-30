@@ -16,17 +16,19 @@ public class Persona {
     private String profesion;
     private String correo_electronico;
     private String telefono;
+    private String imagen;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String certificacion, String profesion, String correo_electronico, String telefono, String email, String clave) {
+    public Persona(String nombre, String apellido, String certificacion, String profesion, String correo_electronico, String telefono, String imagen) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.certificacion = certificacion;
         this.profesion = profesion;
         this.correo_electronico = correo_electronico;
         this.telefono = telefono;
+        this.imagen = imagen;
     }
 
     public int getId() {
@@ -84,5 +86,15 @@ public class Persona {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    
     
 }

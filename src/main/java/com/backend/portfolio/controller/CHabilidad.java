@@ -31,22 +31,19 @@ public class CHabilidad {
     public Habilidad getHabilidad(@PathVariable int id){
         return habilidadServ.findHabilidad(id);
     }
-    
-    @PreAuthorize("hasRole('ADMIN')")    
+       
     @PostMapping("/habilidades/crear")
     public String createHabilidad(@RequestBody Habilidad habi){
         habilidadServ.saveHabilidad(habi);
         return "La habilidad fue creada correctamente";
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/habilidades/borrar/{id}")
     public String deleteHabilidad(@PathVariable int id){
         habilidadServ.deleteHabilidad(id);
         return "La habilidad fue eliminada correctamente";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/habilidades/editar")
     public String editHabilidad(@RequestBody Habilidad habi){
        habilidadServ.editHabilidad(habi);
